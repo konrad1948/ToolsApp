@@ -1,0 +1,23 @@
+{# ToolsManagementApp/templates/base.html #}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <title>{% block title %}ToolManager{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <header>
+    <!-- np. logo, nav -->
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <!-- stopka -->
+  </footer>
+</body>
+</html>

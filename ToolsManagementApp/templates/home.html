@@ -1,0 +1,12 @@
+{# templates/home.html #}
+{% extends 'base.html' %}
+
+{% block title %}ToolManager – Strona główna{% endblock %}
+
+{% block content %}
+  <div class="hero">
+    <h1>Witaj w ToolManager!</h1>
+    <p>Twoje centrum zarządzania narzędziami w firmie.</p>
+    <a href="{% url 'tools:tool-list' %}" class="btn">Lista narzędzi</a>
+  </div>
+{% endblock %}
