@@ -1,142 +1,130 @@
-/* --------------------
-   VARIABLES
--------------------- */
-:root {
-  --color-primary:   #fc8701;  /* pomarańczowy */
-  --color-light:     #F5F5F5;  /* jasny szary */
-  --color-dark:      #333333;  /* ciemny tekst */
-  --color-muted:     #cac4c4;  /* szary tekst */
-  --font-sans:       "Segoe UI", Roboto, sans-serif;
-  --spacing-sm:      8px;
-  --spacing-md:      16px;
-  --spacing-lg:      32px;
-  --border-radius:   4px;
-}
-
-/* --------------------
-   GLOBAL
--------------------- */
+/* reset marginesów i ustawia ogólne fonty */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: var(--font-sans);
-  background-color: var(--color-light);
-  color: var(--color-dark);
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
   line-height: 1.6;
 }
 
-/* --------------------
-   HEADER / NAV
--------------------- */
+/* NAGŁÓWEK */
 header {
-  background-color: var(--color-primary);
-  color: white;
-  padding: var(--spacing-md) var(--spacing-lg);
+  background: #222;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
 }
 
-header .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
+header img {
+  height: 50px;
+  margin-right: 20px;
 }
 
-nav {
-  margin-top: var(--spacing-sm);
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav li + li {
+  margin-left: 15px;
 }
 
 nav a {
-  color: white;
-  margin-right: var(--spacing-md);
+  color: #fff;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 nav a:hover {
   text-decoration: underline;
 }
 
-/* --------------------
-   HERO / HOME CONTENT
--------------------- */
-.hero {
-  background-color: var(--color-primary);
-  color: white;
-  padding: var(--spacing-lg) var(--spacing-lg);
+/* SEKCJA GŁÓWNA */
+main {
+  padding: 20px;
+}
+
+/* BANER na stronie głównej */
+.home-hero {
+  background: #fff;
+  padding: 40px;
   text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.hero h1 {
-  margin-top: 0;
-  font-size: 2.5rem;
+.home-hero .btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  background: #007acc;
+  color: #fff;
+  border-radius: 4px;
 }
 
-.hero p {
-  font-size: 1.125rem;
-  margin-bottom: var(--spacing-md);
+/* STOPKA */
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  margin-top: 40px;
 }
 
-/* --------------------
-   BUTTONS
--------------------- */
+/* ----------------------------------
+   Buttons
+----------------------------------- */
 .btn {
   display: inline-block;
-  padding: var(--spacing-sm) var(--spacing-md);
-  border: none;
-  border-radius: var(--border-radius);
-  font-size: 1rem;
-  cursor: pointer;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-base);
+  font-weight: 600;
+  line-height: 1;
   text-decoration: none;
   text-align: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(241, 90, 36, 0.4);
+}
+
+/* główny przycisk akcji */
 .btn-primary {
   background-color: var(--color-primary);
-  color: white;
+  color: var(--color-white);
 }
 
 .btn-primary:hover {
-  background-color: darken(var(--color-primary), 10%);
+  background-color: #d14f1e; /* trochę ciemniejszy odcień pomarańczu */
 }
 
+/* przycisk drugorzędny (np. anuluj) */
 .btn-secondary {
-  background-color: white;
+  background-color: var(--color-white);
   color: var(--color-primary);
-  border: 2px solid var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-light);
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 
-/* --------------------
-   CONTENT SECTIONS
--------------------- */
-section {
-  padding: var(--spacing-lg) var(--spacing-lg);
-  background-color: white;
-  margin: var(--spacing-md) auto;
-  max-width: 800px;
-  border-radius: var(--border-radius);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-section h2 {
-  margin-top: 0;
-  color: var(--color-primary);
-}
-
-/* --------------------
-   FOOTER
--------------------- */
-footer {
-  text-align: center;
-  padding: var(--spacing-md);
-  background-color: white;
-  color: var(--color-muted);
-  font-size: 0.875rem;
-  border-top: 1px solid #ddd;
+/* stan wyłączony */
+.btn:disabled,
+.btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

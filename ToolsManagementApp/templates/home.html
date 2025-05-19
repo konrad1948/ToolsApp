@@ -1,12 +1,14 @@
-{# templates/home.html #}
 {% extends 'base.html' %}
 
-{% block title %}ToolManager – Strona główna{% endblock %}
+{% block title %}Strona główna – KK Tools{% endblock %}
 
 {% block content %}
-  <div class="hero">
-    <h1>Witaj w ToolManager!</h1>
-    <p>Twoje centrum zarządzania narzędziami w firmie.</p>
-    <a href="{% url 'tools:tool-list' %}" class="btn">Lista narzędzi</a>
-  </div>
+  <section class="home-hero">
+    <h1>Witamy w KK Tools</h1>
+    <p>Twoje ulubione miejsce do zarządzania narzędziami!</p>
+    <a href="{% url 'tools:tool-add' %}" class="btn btn-primary">Dodaj narzędzie</a>
+    <a href="{% url 'tools:tool-list' %}" class="btn btn-secondary">Anuluj</a>
+  </section>
 {% endblock %}
+
+

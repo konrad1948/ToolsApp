@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}ToolManager | Usuń {{ tool.name }}{% endblock %}
+
+{% block content %}
+  <section class="container">
+    <h2>Czy na pewno chcesz usunąć "{{ tool.name }}"?</h2>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-primary">Tak, usuń</button>
+      <a href="{% url 'tools:tool-list' %}" class="btn btn-secondary">Anuluj</a>
+    </form>
+  </section>
+{% endblock %}

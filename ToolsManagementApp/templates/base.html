@@ -1,23 +1,33 @@
-{# ToolsManagementApp/templates/base.html #}
+{% load static %}
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  {% load static %}
-  <meta charset="UTF-8">
-  <title>{% block title %}ToolManager{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Moja aplikacja narzędzi{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-  <header>
-    <!-- np. logo, nav -->
-  </header>
+    <header>
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/KK_logo_Group_white.png' %}" alt="Logo KK">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Start</a></li>
+                <li><a href="{% url 'tools:tool-list' %}">Lista narzędzi</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <main>
-    {% block content %}{% endblock %}
-  </main>
+    <main>
+        {% block content %}
+        <!-- tu wstrzyknie się zawartość z rozszerzających szablonów -->
+        {% endblock %}
+    </main>
 
-  <footer>
-    <!-- stopka -->
-  </footer>
+    <footer>
+        <p>&copy; {{ now.year }} KK Tools</p>
+    </footer>
 </body>
 </html>

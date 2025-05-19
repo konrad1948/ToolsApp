@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}ToolManager | {{ tool.name }}{% endblock %}
+
+{% block content %}
+  <section class="container">
+    <h2>{{ tool.name }}</h2>
+    <p><strong>Ilość:</strong> {{ tool.quantity }}</p>
+    <p><strong>Opis:</strong> {{ tool.description }}</p>
+    {% if tool.image %}
+      <img src="{{ tool.image.url }}" alt="{{ tool.name }}">
+    {% endif %}
+    <a href="{% url 'tools:tool-edit' tool.pk %}"   class="btn btn-secondary">Edytuj</a>
+    <a href="{% url 'tools:tool-delete' tool.pk %}" class="btn btn-secondary">Usuń</a>
+    <a href="{% url 'tools:tool-list' %}"            class="btn btn-primary">Wróć do listy</a>
+  </section>
+{% endblock %}
